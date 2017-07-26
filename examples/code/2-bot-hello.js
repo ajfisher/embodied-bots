@@ -6,7 +6,7 @@ const Botkit = require('Botkit');
 console.log("Attempting to get the bot online");
 
 let botcontroller = Botkit.slackbot({
-	debug: false,
+	debug: process.env.APP_DEBUG || false,
 });
 
 const config = {
