@@ -1,0 +1,34 @@
+{
+  "name": "embodied-bots",
+  "version": "0.1.0",
+  "description": "Building Embodied Bots Workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajfisher/embodied-bots.git"
+  },
+  "keywords": [
+    "bots",
+    "johnny-five",
+    "hardware",
+    "arduino",
+    "slack",
+    "botkit",
+    "robots"
+  ],
+  "author": "Andrew Fisher <ajfisher.td@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajfisher/embodied-bots/issues"
+  },
+  "homepage": "https://github.com/ajfisher/embodied-bots#readme",
+  "dependencies": {
+    "botkit": "^0.5.5",
+    "johnny-five": "^0.11.3",
+    "mosca": "^2.5.2",
+    "mqtt": "^2.9.3"
+  }
+}
