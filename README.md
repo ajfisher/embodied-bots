@@ -12,6 +12,13 @@ To participate in this workshop you need access to a Slack Team that has at leas
 
 In addition, you must complete all set up actions for NodeBots as you'll be dealing with physical hardware. Please see the [NodeBots AU setup guide](https://github.com/nodebotsau/nbdau/blob/master/setup.md)
 
+#### Useful other things:
+
+Give your bot a name. Have a look at
+[the bot name generator](http://www.fantasynamegenerators.com/robot-names.php)
+
+Want an icon for your bot? Try [RoboHash](https://robohash.org/)
+
 ### Repo installation
 
 Clone this repo and install the dependencies
@@ -27,6 +34,44 @@ This will install the following:
 * Johnny Five - Used to talk to hardware
 * Node MQTT - used for creating MQTT messaging
 * BotKit - framework for creating bots for Slack and FBM.
+
+### Slack Bot configuration
+
+From slack, go to the main menu and then select "Apps and Integrations".
+
+This will launch a web browser to your team management screen, select "Manage"
+from the top right menu which you can see below.
+
+![](slides/images/manage.png)
+
+Select "Custom Integrations" on the left and you'll see a screen like that below.
+Select "Bots"
+
+![](slides/images/integrations.png)
+
+Now you're on the main integration screen for your new bot or your future stable
+of bots. Select the "Add configuration" button.
+
+![](slides/images/add_config.png)
+
+You'll now need to add a username. Choose something memorable, and easy to type
+to call your bot. There's links above to namers if you need some help.
+
+![](slides/images/create_name.png)
+
+Once done, select "Add bot integration" to add your new bot to your team.
+
+Next you'll land on a screen that will allow you to configure various aspects
+of your bot but most importantly, you'll see your `Slack Token` which allows
+your Bot to connect to Slack's API and post messages to your team channels.
+
+![](slides/images/get_token.png)
+
+Drop back into your terminal where you cloned the project and
+`cp .env.template .env` - this will give you an environment file and you
+then open it up and paste your token into the field called `SLACK_TOKEN`.
+
+Now you're ready to go. 
 
 
 
