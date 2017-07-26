@@ -6,15 +6,27 @@ This repo is subject to lots of change, so please run regular `git pull` actions
 
 ## Set up and installation.
 
+### Dependencies
+
 To participate in this workshop you need access to a Slack Team that has at least one available integration slot and you have admin or team owner access to be able to create a bot and add it. If you don't have access, then please [set up a slack team](https://slack.com) so you can set things up.
+
+In addition, you must complete all set up actions for NodeBots as you'll be dealing with physical hardware. Please see the [NodeBots AU setup guide](https://github.com/nodebotsau/nbdau/blob/master/setup.md)
 
 ### Repo installation
 
 Clone this repo and install the dependencies
 
 ```
-git clone https://github.com/ajfisher/ddd-2017
-cd ddd-2017
+git clone https://github.com/ajfisher/embodied-bots.git
+cd embodied-bots
+npm install
 ```
+
+This will install the following:
+
+* Johnny Five - Used to talk to hardware
+* Node MQTT - used for creating MQTT messaging
+* BotKit - framework for creating bots for Slack and FBM.
+
 
 
