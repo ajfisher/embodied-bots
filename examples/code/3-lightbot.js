@@ -32,7 +32,7 @@ botcontroller.spawn(config).startRTM((err, bot, payload) => {
 
 const channels = ['direct_message', 'direct_mention', 'mention'];
 
-botcontroller.hears(['hello'], channels, (bot,message) => {
+botcontroller.hears(['hello', 'hi',], channels, (bot,message) => {
     let user = `<@${message.user}>`;
     bot.reply(message, `Hi there, ${user}. What can I do for you?`);
 
