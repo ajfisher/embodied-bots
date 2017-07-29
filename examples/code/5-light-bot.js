@@ -9,8 +9,8 @@ let ledstate;
 let notify_users = [];
 
 let client  = mqtt.connect(process.env.MQTT_SERVER)
-const sub_topic = process.env.UNIQ_TOPIC + "/oc/light";
-const pub_topic = process.env.UNIQ_TOPIC + "/ic/light";
+const sub_topic = process.env.UNIQ_TOPIC + "/light/oc";
+const pub_topic = process.env.UNIQ_TOPIC + "/light/ic";
 
 client.on('connect', function () {
     client.subscribe(sub_topic);

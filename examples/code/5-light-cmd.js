@@ -6,17 +6,13 @@ let client = mqtt.connect(process.env.MQTT_SERVER);
 const topic = process.env.UNIQ_TOPIC;
 
 client.on('connect', () => {
-    client.subscribe(topic + '/#');
-
     if (process.argv[2] == "on") {
-        client.publish(topic + "/ic/light", "on");
+        client.publish(topic + "/light/ic", "on");
     } else if (process.argv[2] == "off") {
-        client.publish(topic + "/ic/light", "off");
+        client.publish(topic + "/light/ic", "off");
     }
+
+    console.log("Message sent to server");
+    client.end();
 });
 
-client.on('message', (topic, message) => {
-  // message is Buffer
-  console.log(topic, message.toString());
-  client.end();
-})
