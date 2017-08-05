@@ -58,6 +58,22 @@ information
 
 ### Code notes
 
+1. `6-temp-server.js` is just a data feed. It retrieves the current temperature
+value from the arduino and then pushes it to MQTT.
+
+2. `6-temp-bot.js` is stripped back to just the bare bones of how to handle
+the data request.
+
+3. `6-get-bot.js:23-40` is the main handler of the incoming data. As you can see
+as data arrives, the new item is pushed on the current temperature value and
+it is compared to see if the max or min should be updated.
+
+4. `6-temp-bot.js:58-153` comprises the main data handling to generate a png
+file. Ordinarily you would do this with your own data service and run it off
+your server, however this allows us to use a public API. From there we
+construct an attachment (full details are in the file for you to play with)
+and finally return it.
+
 ## Run the example
 
 As before you'll probably want multiple terminals to do this.

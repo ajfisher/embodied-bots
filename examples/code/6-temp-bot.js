@@ -14,7 +14,7 @@ let current_temp = { min: null, max: null};
 let notify_users = [];
 
 let client  = mqtt.connect(process.env.MQTT_SERVER)
-const sub_topic = process.env.UNIQ_TOPIC + "/temperature/#";
+const sub_topic = process.env.UNIQ_TOPIC + "/temperature/ic";
 
 client.on('connect', function () {
     client.subscribe(sub_topic);
@@ -25,26 +25,19 @@ client.on('message', function (topic, message) {
     // message is Buffer
     let msg = JSON.parse(message.toString());
 
-    if (topic.includes("temperature/ic") ) {
-        // handle new data
-        temp_data.push(msg);
-        
-        if (msg.c < current_temp.min || current_temp.min === null) {
-            current_temp.min = msg.c;
-        }
-        if (msg.c > current_temp.max || current_temp.max === null) {
-            current_temp.max = msg.c;
-        }
+    // handle new data
+    temp_data.push(msg);
 
-        current_temp.c = msg.c;
-        current_temp.ts = msg.ts;
-
-    } else if (topic.includes("temperature/m") ) {
-        // handle meta data
-        console.log("meta", msg);
+    if (msg.c < current_temp.min || current_temp.min === null) {
+        current_temp.min = msg.c;
+    }
+    if (msg.c > current_temp.max || current_temp.max === null) {
+        current_temp.max = msg.c;
     }
 
-})
+    current_temp.c = msg.c;
+    current_temp.ts = msg.ts;
+});
 
 var botcontroller = Botkit.slackbot({
 	debug: process.env.APP_DEBUG || false,
