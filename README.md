@@ -1,21 +1,28 @@
 # Building Embodied Bots Workshop - DDD Melbourne 2017
 
-This is the supporting repo for the Building Embodied Bots workshop taking place at DDD Melbourne, 2017.
+This is the supporting repo for the Building Embodied Bots workshop taking
+place at DDD Melbourne, 2017.
 
-This repo is subject to lots of change, so please run regular `git pull` actions on it to ensure you have the latest code.
+This repo is subject to lots of change, so please run regular `git pull` actions
+on it to ensure you have the latest code.
 
 ## Set up and installation.
 
 ### Dependencies
 
-To participate in this workshop you need access to a Slack Team that has at least one available integration slot and you have admin or team owner access to be able to create a bot and add it. If you don't have access, then please [set up a slack team](https://slack.com) so you can set things up.
+To participate in this workshop you need access to a Slack Team that has at
+least one available integration slot and you have admin or team owner access
+to be able to create a bot and add it. If you don't have access, then please
+[set up a slack team](https://slack.com) so you can set things up.
 
-In addition, you must complete all set up actions for NodeBots as you'll be dealing with physical hardware. Please see the [NodeBots AU setup guide](https://github.com/nodebotsau/nbdau/blob/master/setup.md)
+In addition, you must complete all set up actions for NodeBots as you'll be
+dealing with physical hardware. Please see the
+[NodeBots AU setup guide](https://github.com/nodebotsau/nbdau/blob/master/setup.md)
 
-#### Useful other things:
+#### Other bits to do before hand:
 
 Give your bot a name. Have a look at
-[the bot name generator](http://www.fantasynamegenerators.com/robot-names.php)
+[a bot name generator](http://www.fantasynamegenerators.com/robot-names.php)
 
 Want an icon for your bot? Try [RoboHash](https://robohash.org/)
 
@@ -34,6 +41,7 @@ This will install the following:
 * Johnny Five - Used to talk to hardware
 * Node MQTT - used for creating MQTT messaging
 * BotKit - framework for creating bots for Slack and FBM.
+* plot.ly - framework for making graphs
 
 ### Slack Bot configuration
 
@@ -71,7 +79,5 @@ Drop back into your terminal where you cloned the project and
 `cp .env.template .env` - this will give you an environment file and you
 then open it up and paste your token into the field called `SLACK_TOKEN`.
 
-Now you're ready to go. 
-
-
+Now you're ready to go.
 
