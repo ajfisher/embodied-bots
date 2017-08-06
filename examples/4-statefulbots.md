@@ -23,7 +23,7 @@ along in `examples/code/4-statefulbot.js`.
 2. `.hears()` is now using regexes in place of literal phrases in order to make
 it more flexible. This helps deal with slight imprecision such as "turn the light on"
 as well as "turn the lights on" (note pluralisation). Other regexes deal with
-reversal of entities which is a common English thing "turn on the light" vs
+reversal of syntax which is a common English thing "turn on the light" vs
 "turn the light on".
 
     ```

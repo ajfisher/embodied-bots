@@ -29,6 +29,7 @@ The example code is located in `examples/code/1-blink.js` or you can use the
 code below:
 
 ```
+const dotenv = require('dotenv').config(); // 1
 const five = require('johnny-five'); // 1
 
 let board = new five.Board({port: process.argv[2]}); //2
