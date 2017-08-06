@@ -6,7 +6,17 @@
 		<meta name="description" content="Workshop for DDD 2017 on JS Social Bots.">
 		<meta name="author" content="Andrew Fisher">
 
-		<title>Building emobodied bots with NodeBots</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ajfisher">
+        <meta name="twitter:creator" content="@ajfisher">
+        <meta name="twitter:title" content="Building embodied bots using JS">
+        <meta name="twitter:description" content="Chatbots and other virtual assistants are becoming increasingly common. This presentation shows how they can also be embodied back to the real world using JS. Given at DDD Melbourne on August 12, 2017 by Andrew Fisher">
+        <meta name="twitter:image" content="http://embodiedbots.ajf.io/images/cardimage.png">
+
+		<title>Building emobodied bots with JavaScript</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/ajf.css" id="theme">
@@ -42,6 +52,15 @@
 		<script src="js/reveal.js"></script>
 
 		<script>
+            var notes = false;
+			if( window.location.hostname.match( /ajf/gi ) ) {
+                document.getElementsByTagName("body")[0].className = "production";
+                notes = true;
+            }
+
+            if (navigator.userAgent.match(/chrome/gi)) {
+                //document.getElementsByTagName("body")[0].className += " chrome";
+            }
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
@@ -53,6 +72,7 @@
 				history: true,
                 center: false,
                 overview: false,
+                showNotes: notes,
 
 				transition: 'fade', // none/fade/slide/convex/concave/zoom
 
@@ -78,7 +98,6 @@
                         src: 'plugin/highlight/highlight.js',
                         async: false,
                         callback: function() {
-                            console.log("About to highlight code");
                             hljs.initHighlightingOnLoad();
                         }
                     },
