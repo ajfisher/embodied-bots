@@ -14,8 +14,11 @@ in javascript for the next 90 minutes.
 
 ---
 
-## Rise of the bots
+## Bots appearing everywhere
+<!-- .slide: data-background-image="/images/droids.jpg" -->
 
+(CC) Flickr <!-- .element: class="attribution" -->
+[⣫⣤⣇⣤](http://www.flickr.com/photos/donsolo/3768623542/)
 
 Notes:
 
@@ -30,7 +33,11 @@ what a bot and human can do on those platforms.
 
 ---
 
-### Ubiquity of the bots
+### A bot for everything
+<!-- .slide: data-background-image="/images/slackbots.png" -->
+
+(CC) Flickr <!-- .element: class="attribution" -->
+[Slack HQ](https://slackhq.com/the-inevitable-rise-of-the-bots-36d9993e7bf5)
 
 
 Notes:
@@ -42,6 +49,10 @@ pragmatic and whimsical.
 ---
 
 ### Embodied social bots
+<!-- .slide: data-background-image="/images/robot_johngreenaway.jpg" -->
+
+(CC) Flickr <!-- .element: class="attribution" -->
+[JohnGreenaway](https://www.flickr.com/photos/johngreenaway/3356358479/)
 
 Notes:
 
@@ -52,6 +63,10 @@ by the environment.
 ---
 
 ### Embodiment
+<!-- .slide: data-background-image="/images/embodiment_flower.jpg" -->
+
+(CC) Flickr <!-- .element: class="attribution" -->
+[Krissy Venosdale](https://www.flickr.com/photos/venosdale/36046843801/)
 
 Notes:
 
@@ -67,9 +82,9 @@ the enviroment.
 
 ## Agenda
 
-1. Embodiement and cognition
+1. Embodiment and cognition
 
-2. Hello, hardware and Hi, Botty
+2. Hello, Hardware and Hi, Botty
 
 3. Building a bot with emotions
 
@@ -86,7 +101,7 @@ Finally we'll build out our embodied slackbot.
 
 ---
 
-### Public service announcement
+### Workshop repository 
 
 github.com/ajfisher/embodied-bots <!--.element class="bigtext" -->
 
@@ -105,7 +120,7 @@ a different session.
 
 ---
 
-## Embodiment and cognition
+# Embodiment and cognition
 
 Notes:
 
@@ -118,7 +133,7 @@ we're properly talking about.
 
 * Background to embodiment
 * Stack overview
-* The Lövheim cube of emotion
+* The PAD emotional state model
 
 Notes:
 
@@ -130,12 +145,13 @@ model we'll be using to embody our bots.
 
 ## Embodiment theories
 
-Many features of cognition are embodied in that they are deeply dependent upon
-characteristics of the physical body of an agent, such that the agent's
-beyond-the-brain body plays a significant causal role, or a physically
-constitutive role, in that agent's cognitive processing.
+> Many features of cognition are embodied in that they are deeply dependent upon
+> characteristics of the physical body of an agent, such that the agent's
+> beyond-the-brain body plays a significant causal role, or a physically
+> constitutive role, in that agent's cognitive processing.
 
 RA Wilson and L Foglia, Embodied Cognition in the Stanford Encyclopedia of Philosophy
+<!-- .element: class="attribution" -->
 
 Notes:
 
@@ -149,7 +165,11 @@ they are put.
 
 ---
 
-## Cheetah
+## Evolved capability
+<!-- .slide: data-background-image="/images/hawk.jpg" -->
+
+(CC) Flickr <!-- .element: class="attribution" -->
+[David Seibold](https://www.flickr.com/photos/stillugly/33720129353/)
 
 Notes:
 
@@ -260,11 +280,12 @@ Notes:
 Finally, up the top here is where we'll spend most of our time. This application
 will be running a model tat creates and responds to language and build the
 bot's internal state that represents the world. Besides a basic state model,
-we'll also be building a simple emotional model based on Lövheim's cube of emotion.
+we'll also be building a simple emotional model based on Mehrabian & Russell's
+PAD emotional state model which is a bit dated but gives us a good approximation
 
 ---
 
-### Lövheim cube of emotion
+### PAD emotional state model
 
 Notes:
 
@@ -272,19 +293,26 @@ We'll get stuck into those first two parts in the practical section, but before
 we do that let's get the theory of what we'll build out of the way while you're
 all paying attention.
 
-The Lövheim cube of emotion is a modern, though simple model of how neurotransmitters
-affect emotional state. It is is surprisingly describtive though perhaps a little
-reductionist, however it works because it's easy to model.
+The PAD model is a bit dated, it was designed in the 70s & 80s but still has
+descriptive value. It has been replaced in many ways by more biologically
+based models. The benefit though is that it's quite simple to model and for
+caricature style emotional states it works well enough for our purposes.
+If this is of interest, then check
+out Lövheim's cube of emotion for more up to date models using neurotransmitter
+effects.
 
-In the cube, the neurotransmitters serotonin, noradrenaline and dopamine are
-used together and depending on their concentrations, will push the agent towards
-one of the eight corners of the cube and away from neutral - this has the effect
-of generally modelling most of the basic emotional states.
+In the model, there are three orthogonal axes, Pleasure / Displeasure, Arousal /
+Non-Arousal and Dominance-Submissive scales.
 
-As I mentioned this is a simple model, but it's one we can implement algorithmically.
+As these combine together you get a reasonable range of emotions. For example
+fear and anger are both unpleasant emotions that both register high on arousal
+however anger is a highly dominant emotion whereas fear is a submissive one.
 
-We will then use external stimuli to affect the levels of these NTs and this
-should then be used to change the responses that are generated back to the human.
+As I mentioned this is a simple model, but it's one we can implement algorithmically
+as all we need is a vector that points towards one of the 8 corners of the cube.
+
+We'll use some external stimuli to affect the position of the bot on these scales
+and this should generate different responses back to the human.
 
 ---
 
@@ -296,6 +324,12 @@ So what we'll end up building will be a very simple iterpretation of emotional
 state in our bot and I'm not suggesting this should be used for all your
 conversational UIs. However, it does create an interesting experiment that
 is worth playing with as you explore this space.
+
+---
+
+# Hello, Hardware /<br/>Hi, Botty
+
+Notes:
 
 Now you understand the background to embodiment and the three parts of the
 system we're going to build, let's get the basics out of the way and evolve
@@ -414,7 +448,7 @@ examples.
 
 ---
 
-### EX 1: Circuit
+### Ex 1: Circuit
 
 ![](images/led_analog_bb.png)<!-- .element width="45%" style="border: none !important;" -->
 
@@ -442,7 +476,7 @@ Select StandardFirmata and then follow the prompts.
 
 ---
 
-### EX 1: Code
+### Ex 1: Code
 
 ```
 const dotenv = require('dotenv').config(); // 1
@@ -474,7 +508,7 @@ step by step is there.
 
 ---
 
-### EX 2: Hi, Botty - code
+### Ex 2: Hi, Botty - code
 
 
 ```
@@ -534,7 +568,7 @@ In our case we then send a reply back to the user quite simply.
 
 ---
 
-### EX 2: Hi Botty in action
+### Ex 2: Hi Botty in action
 
 -- Show gif reply.
 
@@ -544,7 +578,7 @@ And here you can see it in action.
 
 ---
 
-## EX 3: Light bot, I command you
+## Ex 3: LightBot, I command you
 
 Notes:
 
@@ -557,7 +591,7 @@ You can keep your light circuit from before.
 
 ---
 
-### EX 3: light bot code
+### Ex 3: LightBot code
 
 ```
 'use strict';
@@ -619,7 +653,7 @@ update the LED and then reply saying there you go. Very very simple.
 
 ---
 
-### Ex 3: Demo
+### Ex 3: LightBot demo
 
 Notes:
 
@@ -632,7 +666,7 @@ me chocolate or similar types of behaviour.
 
 ---
 
-## Building a bot with emotions
+# Building a bot with emotions
 
 Notes:
 
@@ -642,9 +676,9 @@ design.
 
 ---
 
-## building a bot with emotions
+## Building a bot with emotions
 
-* Increasing ambiguity
+* Clarifying ambiguity
 * Distributed embodiment
 * Using data to influence emotion
 
@@ -656,7 +690,11 @@ design a bit for scale and finally we get some data and influence the emotions.
 
 ---
 
-## Ex 4: Increasing ambiguity
+## Ex 4: Clarifying ambiguity
+<!-- .slide: data-background-image="/images/ambiguity.jpg" -->
+
+(CC) Flickr <!-- .element: class="attribution" -->
+[baralbion](https://www.flickr.com/photos/baralbion/123863714/)
 
 Notes:
 
@@ -666,7 +704,7 @@ entities and intents.
 
 ---
 
-### Ex 4: Increasing ambiguity
+### Ex 4: Clarifying ambiguity
 
 Turn the lights on
 
@@ -690,7 +728,7 @@ humans.
 
 ---
 
-### EX 4: Code
+### Ex 4: Clarifying ambiguity - code
 
 ```
 botcontroller.hears(['light(.?) on', 'on(.?) the light(.?)'], channels, (bot, message) => {
@@ -771,7 +809,7 @@ to determine a result. You have to be pretty confident with that approach though
 
 ---
 
-### Ex 4: Demo
+### Ex 4: Clarifying demo
 
 Notes:
 
@@ -823,7 +861,7 @@ current status to OC.
 
 ---
 
-### EX 5: Light server
+### Ex 5: Light server
 
 ```
 const dotenv = require('dotenv').config();
@@ -873,7 +911,7 @@ echo chamber.
 
 ---
 
-### EX 5: Light bot
+### Ex 5: Light bot
 
 Notes:
 
@@ -897,7 +935,7 @@ need to allow it to sense the world.
 
 ---
 
-## EX 6: Sensing temperature
+## Ex 6: Sensing temperature
 
 Notes:
 
@@ -968,7 +1006,7 @@ bot.
 
 ---
 
-### EX 6: Bot code
+### Ex 6: Bot code
 
 examples/code/6-temp-bot.js
 
@@ -987,7 +1025,7 @@ memory for simplicty.
 
 ---
 
-### EX 6: Demo
+### Ex 6: Demo
 
 PIC
 
@@ -1007,47 +1045,104 @@ to someone based on it's emotion.
 
 Notes:
 
-As I mentioned, we're going to implement the Lövheim cube of emotion simply
-by using the three axes to drive the exmotion to one of the three corners.
+As I mentioned, we're going to implement the PAD emotional state mode simply
+by using the three axes to drive the emotion to one of the three corners.
 
 Going back to our earliest example, we'll use this to affect how the bot greets
 the human...
 
 In our model we'll use two external stimuli, time of day and temperature.
 
-Time of day will be mapped to serotonin levels which should be
+Time of day will be mapped to the Arousal dimension and will be positive through
+the early and middle part of the day and then it will go low and negative into
+the night. This is a crude approximation of your daily rhythm.
 
+We'll then map the temperature values. If the temperature is inside a normal
+range, say 18-24 degrees which is good office temperature then we'll say that
+pleasure is high, and outside of that it will go low.
 
-TODO TODO TODO
-
----
-
-## End!!
-
----
-
-## workshop repository
-
-http://github.com/ajfisher/jsiot-workshop
+For the moment we'll leave dominance as high but you could map this based on
+some other criteria as well. Maybe when the temp range goes really hot it could
+push dominance up.
 
 ---
 
-## TODO
-
-1. Introduction to electronics & JS hardware stack
-2. Building an API connected thing
-3. Acquiring data from the environment
+### Ex 7: Emotional model code
 
 Notes:
 
-Today, I've split things up so there's a bit of theory to get you familarised with the 
-stack and some fundamental electronics you're going to need to know and then really
-the majority of the time will be building stuff in a guided way with a focus on
-building something that is in the physical environment and is being actuated from
-a digital source and then reversing that and taking data from our environment
-and doing things with it. 
+So here you can see we just take the data and we use that to push the bot's
+state to one of the 8 corners of the domain.
 
 ---
+
+### Ex 7: Response code
+
+Notes:
+
+Now when the bot 
+
+---
+
+### Ex 7: Demo
+
+PIC
+
+Notes:
+
+As you can see here, if I change the temperature, I can push the bot to becoming
+more irritable as a result. This will then affect the response it gives me
+when I say hello.
+
+---
+
+# Summary
+
+Notes:
+
+And there we have it, you've all created a bot that can manipulate the world
+as well as have it's emotions influenced by the environment just like we do. So
+you can go home tonight and say that today you built an embodied virtual
+intelligence which sounds pretty cool.
+
+---
+
+## Resources
+
+* hackmelbourne.org
+* NodeBots Night (1st Weds / month - meetup.com)
+* johnny-five.io
+* api.slack.com
+
+
+Notes:
+
+If you're into this sort of stuff then I have some resources here. If you want
+to play with this more, then I'd encourage you to come to Hack Melbourne over
+in Hawthorn as there's a group of us playing around with AI, autonomous vehicles
+nodebots and social robotics. Tuesday and Wednesday is when most of the action
+happens.
+
+Finally, I do have some kits available so if you want to keep hacking then
+there's little kits you can use to do all of this workshop for $20.
+
+---
+
+# Building Embodied Bots with JavaScript
+<!-- .slide: class="title" -->
+
+DDD Melbourne, 12 August, 2017<!-- .element: class="location" -->
+
+Andrew Fisher @ajfisher<!-- .element: class="author" -->
+
+
+Notes:
+
+If you can bring your parts up after boxing them back up we can clean up ready
+for the next session to follow in behind us.
+
+---
+
 
 ## Where are the droids?
 <!-- .slide: data-background="/images/droids.jpg" -->
