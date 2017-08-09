@@ -16,7 +16,7 @@ client.on('connect', () => {
 
 board.on("ready", () => {
     temp_sensor = new five.Thermometer({
-        controller: 'LM335',
+        controller: 'LM35',
         pin: process.env.TEMP_PIN || "A0",
         freq: process.env.TEMP_FREQUENCY * 1000 || 10000,
     });
