@@ -93,6 +93,10 @@ botcontroller.hears(['current emotion'], ['direct_message'], (bot, message) => {
     bot.reply(message, "My current emotion is: " + bot_emotions.emotion());
 });
 
+botcontroller.hears(['current temp'], ['direct_message'], (bot, message) => {
+    bot.reply(message, "My current temperature is: " + current_temp.c);
+});
+
 function update_emotions() {
     // go through emotion updating process.
     //

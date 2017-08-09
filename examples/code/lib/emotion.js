@@ -83,6 +83,5 @@ class EmotionalModel {
     }
 }
 
-
 module.exports = EmotionalModel;
 
