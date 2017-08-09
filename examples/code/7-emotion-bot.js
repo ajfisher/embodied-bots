@@ -64,6 +64,7 @@ botcontroller.hears(['hello', 'hi',], channels, (bot, message) => {
         "relaxed": `Hi ${user}`,
         "sleepy": `_yawn_ Hi ${user} :zzz:`,
         "angry": `What do you want, ${user}? :angry:`,
+        //"angry": `Seriously, I'm working here - what do you want, ${user}? :angry:`,
         "frustrated": `:weary: Can I help you?`,
         "indifferent": `Hey...`,
         "bored": `Hey there`,

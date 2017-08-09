@@ -6,12 +6,8 @@ const moment = require('moment');
 const mqtt = require('mqtt');
 const Quiche = require('quiche');
 
-const request = require('request');
-
 let temp_data = [];
 let current_temp = { min: null, max: null};
-
-let notify_users = [];
 
 let client  = mqtt.connect(process.env.MQTT_SERVER)
 const sub_topic = process.env.UNIQ_TOPIC + "/temperature/ic";
