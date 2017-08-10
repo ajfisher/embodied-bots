@@ -1,0 +1,8 @@
+.git/*
+.gitignore
+package.json
+exclude.txt
+Gruntfile.js
+node_modules/*
+*.swp
+*.swo
