@@ -454,3 +454,28 @@ p.bigtext {
   justify-content: center;
   height: 33%;
   margin-left: 2rem; }
+
+.production .reveal .speaker-notes {
+  display: none;
+  position: absolute;
+  width: 25%;
+  max-height: initial;
+  left: initial;
+  bottom: initial;
+  z-index: 1;
+  font-size: 2rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  box-sizing: border-box;
+  text-align: left;
+  font-family: "Rokkitt", serif;
+  right: 2rem;
+  bottom: 2rem;
+  padding: 1rem 1.5rem;
+  margin: 0; }
+
+.production .reveal .speaker-notes p {
+  margin: 0;
+  margin-bottom: 1rem; }
