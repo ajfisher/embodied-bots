@@ -197,7 +197,7 @@ fitness function can be applied to cognition via evolution.
 
 Notes:
 
-A good example of this was facebook's AI project that sent the world into a spin.
+An anti-example of this was facebook's AI project that sent the world into a spin.
 
 In this scenario, the bots were using english via chat bots and evolved strategies
 (ie intelligence or embedded cognition) to negotiate numbers of balls shared
@@ -256,7 +256,11 @@ actual human.
 
 ---
 
-## System blocks
+## System diagram
+
+![](/images/system_diagram.svg)
+<!-- .element style="background:none; border: none; box-shadow: none; width: 62%" -->
+
 
 Notes:
 
@@ -267,6 +271,9 @@ pieces.
 ---
 
 ### Sensorimotor
+
+![](/images/sensorimotor.svg)
+<!-- .element style="background:none; border: none; box-shadow: none; width: 41%" -->
 
 Notes:
 
@@ -279,6 +286,9 @@ framework.
 
 ### Language interface
 
+![](/images/language_interface.svg)
+<!-- .element style="background:none; border: none; box-shadow: none; width: 45%" -->
+
 Notes:
 
 The human / bot interaction will happen using slack and will use the BotKit
@@ -289,6 +299,12 @@ between the bot and the human.
 ---
 
 ### Embodied cognition application
+
+
+![](/images/embodied_cognition.svg)
+<!-- .element style="background:none; border: none; box-shadow: none; width: 75%" -->
+
+
 
 Notes:
 
@@ -1014,7 +1030,7 @@ deliver a value to an analog pin on the arduino.
 
 ---
 
-### Ex 6: Temperature Code
+### Ex 6: Temperature code
 
 ```
 board.on("ready", () => {
@@ -1049,7 +1065,7 @@ bot.
 
 ---
 
-### Ex 6: Bot code
+### Ex 6: Temperature bot code
 
 ```
 
@@ -1189,7 +1205,7 @@ memory for simplicty.
 
 ---
 
-### Ex 6: Demo
+### Ex 6: Temperature bot demo
 
 ![](/images/temp_bot_output.png)<!-- .element width="45%" -->
 
@@ -1321,7 +1337,7 @@ looks it up based on the state list.
 
 ---
 
-### Ex 7: Demo
+### Ex 7: Emotional bot demo
 
 ![](/images/bot_exchange.png)<!-- .element width="28%" -->
 
