@@ -41,7 +41,6 @@ This will install the following:
 * Johnny Five - Used to talk to hardware
 * Node MQTT - used for creating MQTT messaging
 * BotKit - framework for creating bots for Slack and FBM.
-* plot.ly - framework for making graphs
 
 ### Slack Bot configuration
 
