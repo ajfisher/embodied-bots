@@ -1101,51 +1101,7 @@ const get_temp_message = (data, opts) => {
 
     let options = opts || {};
 
-    const w = 400;
-    const h = 250;
-    const max_pts = 40;
-
-    // make up an image chart from text strings
-    let lc = new Quiche('line');
-    lc.setHostname('image-charts.com');
-    lc.setWidth(w);
-    lc.setHeight(h);
-    lc.setAutoScaling();
-    lc.setLegendHidden(true);
-    lc.setTitle(options.title || "Historical Temperature C");
-
-    let data_pts = [];
-    let times = [];
-
-    data.forEach((dp, i) => {
-
-        // check to see if this point is inside a
-        // moving window of points this is so the chart
-        // only shows `max_pts` worth of data.
-        let add_pt = false;
-        if (data.length > max_pts) {
-            if (i > data.length - max_pts) {
-                add_pt = true;
-            }
-        } else {
-            add_pt = true;
-        }
-
-        if (add_pt) {
-            data_pts.push(dp.c);
-            if (i % 6 == 0) {
-                let t = new moment(dp.ts);
-                times.push(t.format("HH:mm:ss"));
-            } else {
-                times.push(""); // add blanks when not needed.
-            }
-        }
-    });
-
-    lc.addData(data_pts, "temp(c)", "ede63e");
-    lc.addAxisLabels('x', times);
-
-    const temp_url = lc.getUrl(true);
+    // ... do a stack of processing here to draw a chart
 
     const min = current_temp.min || "-";
     const max = current_temp.max || "-";
@@ -1198,7 +1154,6 @@ and compares it all and keeps track of current, max and min.
 
 In a usual application, you'd do this with a database but we're doing it in
 memory for simplicty.
-
 
 ---
 
@@ -1359,11 +1314,11 @@ intelligence which sounds pretty cool.
 
 ## Resources
 
-* hackmelbourne.org
 * NodeBots Night (1st Weds / month - meetup.com)
+* hackmelbourne.org
 * johnny-five.io
 * api.slack.com
-
+* Designing Bots (Amir Shevat)
 
 Notes:
 
@@ -1384,7 +1339,6 @@ there's little kits you can use to do all of this workshop for $20.
 DDD Melbourne, 12 August, 2017<!-- .element: class="location" -->
 
 Andrew Fisher @ajfisher<!-- .element: class="author" -->
-
 
 Notes:
 
