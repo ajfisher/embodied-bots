@@ -318,11 +318,12 @@ PAD emotional state model which is a bit dated but gives us a good approximation
 
 ### PAD emotional state model
 
-![](/images/PAD-Dimensional-Model-of-Emotion-with-Example-Emotional-Categories.png)
-<!-- .element style="width: 35%" -->
+![](/images/pad_model.svg)
+<!-- .element style="width: 38%; background: none; border: none; box-shadow: none;" -->
 
 
-(C) Lance, Marsella <!-- .element: class="attribution" -->
+
+Adapted from Lance, Marsella <!-- .element: class="attribution" -->
 [Glances, glares, and glowering: How should a virtual human express emotion through gaze?](https://www.researchgate.net/publication/220660823_Glances_glares_and_glowering_How_should_a_virtual_human_express_emotion_through_gaze)
 
 Notes:
