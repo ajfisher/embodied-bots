@@ -9,9 +9,11 @@ to it.
 
 ## Preparation
 
-Take your arduino and build the circuit below. This is an extension to the
+Take your arduino and build the circuit below. This is the same as the
 circuit you made in the first hello, world example but you can configure it
 to run on any pin.
+
+![](circuits/led_circuit.png)
 
 Once you have the circuit built, update your `.env` file to include a value for
 

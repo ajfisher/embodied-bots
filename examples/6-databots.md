@@ -17,7 +17,7 @@ up if you want to combine the two but we won't discuss light right now.
 In this example you will create a temperature sensor in order to capture
 temperature data from the environment. The circuit is shown below:
 
--- PUT TEMP SENSOR CIRCUIT IN HERE
+![](circuits/lm35_temp.png)
 
 ## Design considerations
 

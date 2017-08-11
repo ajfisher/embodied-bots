@@ -8,11 +8,22 @@ software control of your device.
 
 ## Preparation
 
+### Circuit
+
+Build the circuit below:
+
+![](circuits/led_circuit.png)
+
+### Run the arduino
+
 Plug your arduino into your computer using the USB cable. Again, you should
 have completed all setup tasks in the
 [setup guide](https://github.com/nodebotsau/nbdau/blob/master/setup.md).
 
-## Install firmata on to your arduino
+## Install firmata on to your arduino (optional)
+
+The hardware you'll be given will have firmata on it if you're in a workshop.
+If not you'll need to do the step below.
 
 From a terminal run:
 
