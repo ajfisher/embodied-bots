@@ -304,8 +304,6 @@ between the bot and the human.
 ![](/images/embodied_cognition.svg)
 <!-- .element style="background:none; border: none; box-shadow: none; width: 75%" -->
 
-
-
 Notes:
 
 Finally, up the top here is where we'll spend most of our time. This application
@@ -320,8 +318,6 @@ PAD emotional state model which is a bit dated but gives us a good approximation
 
 ![](/images/pad_model.svg)
 <!-- .element style="width: 38%; background: none; border: none; box-shadow: none;" -->
-
-
 
 Adapted from Lance, Marsella <!-- .element: class="attribution" -->
 [Glances, glares, and glowering: How should a virtual human express emotion through gaze?](https://www.researchgate.net/publication/220660823_Glances_glares_and_glowering_How_should_a_virtual_human_express_emotion_through_gaze)
@@ -361,7 +357,6 @@ and this should generate different responses back to the human.
 
 (CC) <!-- .element: class="attribution" -->
 [ajfisher](https://twitter.com/ajfisher)
-
 
 Notes:
 
@@ -800,43 +795,45 @@ constraints a little to generalise it.
 
 ```
 botcontroller.hears(['light(.?)$'], channels, (bot, message) => {
-    bot.startConversation(message, function(err, convo) { // 6
+  bot.startConversation(message, function(err, convo) { // 6
 
-        // first we look at what state the LED is in.
-        let state = ledstate ? "on" : "off"; // what is LED currently
-        let question_state = ledstate ? "off" : "on"; // what do we ask about
+    // first we look at what state the LED is in.
+    let state = ledstate ? "on" : "off"; // what is LED?
+    let question_state = ledstate ? "off" : "on"; // what to ask?
 
-        // add a timeout option
-        convo.setTimeout(15000); // 7
-        convo.onTimeout((convo) => {
-            convo.say(`I'll leave the light ${state}. Just let me know if you want to change it`);
-            convo.next();
-        });
-
-        // now ask what to do
-        // 8
-        convo.ask(`The light is currently *${state}*. Do you want me to turn it ${question_state}?`,
-        [{
-            pattern: bot.utterances.yes, // 9
-            callback: function(response, convo) {
-                if (ledstate) {
-                    led.off();
-                } else {
-                    led.on();
-                }
-                ledstate = !ledstate;
-                convo.say(`Okay, the light is now ${question_state}.`);
-                convo.next();
-            }
-        },{
-            pattern: bot.utterances.no,
-            default: true,
-            callback: function(response, convo) {
-                convo.say('Cool. I\'ll leave it as it is');
-                convo.next();
-            }
-        }] );
+    // add a timeout option
+    convo.setTimeout(15000); // 7
+    convo.onTimeout((convo) => {
+        convo.say(`I'll leave the light ${state}.
+            Just let me know if you want to change it`);
+        convo.next();
     });
+
+    // now ask what to do
+    // 8
+    convo.ask(`The light is currently *${state}*.
+        Do you want me to turn it ${question_state}?`,
+    [{
+        pattern: bot.utterances.yes, // 9
+        callback: function(response, convo) {
+            if (ledstate) {
+                led.off();
+            } else {
+                led.on();
+            }
+            ledstate = !ledstate;
+            convo.say(`Okay, the light is now ${question_state}.`);
+            convo.next();
+        }
+    },{
+        pattern: bot.utterances.no,
+        default: true,
+        callback: function(response, convo) {
+            convo.say('Cool. I\'ll leave it as it is');
+            convo.next();
+        }
+    }] );
+  });
 });
 ```
 
@@ -1048,10 +1045,8 @@ board.on("ready", () => {
             ts: Date.now(),
         };
 
-        // use the retain flag to ensure the last value stays behind. This
-        // will ensure the bot can always get a value on start up
-        client.publish(pub_topic, JSON.stringify(msg), {retain: true});
-        //console.log(msg);
+        client.publish(pub_topic, JSON.stringify(msg),
+            {retain: true});
     });
 });
 ```
@@ -1124,8 +1119,9 @@ const get_temp_message = (data, opts) => {
 
     data.forEach((dp, i) => {
 
-        // check to see if this point is inside a moving window of points
-        // this is so the chart only shows `max_pts` worth of data.
+        // check to see if this point is inside a
+        // moving window of points this is so the chart
+        // only shows `max_pts` worth of data.
         let add_pt = false;
         if (data.length > max_pts) {
             if (i > data.length - max_pts) {
@@ -1137,7 +1133,7 @@ const get_temp_message = (data, opts) => {
 
         if (add_pt) {
             data_pts.push(dp.c);
-            if (i % 6 == 0) { // todo choose appropriate number here
+            if (i % 6 == 0) {
                 let t = new moment(dp.ts);
                 times.push(t.format("HH:mm:ss"));
             } else {
