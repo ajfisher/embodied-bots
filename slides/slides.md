@@ -1,8 +1,6 @@
 # Building Embodied Bots with JavaScript
 <!-- .slide: class="title" -->
 
-DDD Melbourne, 12 August, 2017<!-- .element: class="location" -->
-
 Andrew Fisher @ajfisher<!-- .element: class="author" -->
 
 
@@ -1335,8 +1333,6 @@ there's little kits you can use to do all of this workshop for $20.
 
 # Building Embodied Bots with JavaScript
 <!-- .slide: class="title" -->
-
-DDD Melbourne, 12 August, 2017<!-- .element: class="location" -->
 
 Andrew Fisher @ajfisher<!-- .element: class="author" -->
 

@@ -1,7 +1,6 @@
-# Building Embodied Bots Workshop - DDD Melbourne 2017
+# Building Embodied Bots Workshop 
 
-This is the supporting repo for the Building Embodied Bots workshop taking
-place at DDD Melbourne, 2017.
+This is the supporting repo for the Building Embodied Bots workshop
 
 This repo is subject to lots of change, so please run regular `git pull` actions
 on it to ensure you have the latest code.
